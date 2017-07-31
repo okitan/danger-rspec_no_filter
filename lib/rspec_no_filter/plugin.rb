@@ -22,7 +22,7 @@ module Danger
     # A method that you can call from your Dangerfile
     # @return   [Array<String>]
     #
-    def warn_for_rspec_filter_tags(tags = tags_from_spec_helper)
+    def warn_for_rspec_filter(tags = tags_from_spec_helper)
       regexp = Regexp.new([ "fit", "fcontext", *tags ].map {|item| "\\s+#{item}\\s+" }.join("|"))
 
       diff = GitDiffParser.parse(github.pr_diff)
